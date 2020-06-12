@@ -432,8 +432,8 @@ describe 'Kue Tests', ->
       jobs.process('test-job-serial-failed', 1, (job,jdone) ->
         jobStartTimes.push Date.now()
         if( jobStartTimes.length == 2 )
-          (jobStartTimes[0] - now).should.be.approximately( 0, 100 )
-          (jobStartTimes[1] - now).should.be.approximately( 500, 100 )
+          (jobStartTimes[0] - now).should.be.approximately( 0, 1000 )
+          (jobStartTimes[1] - now).should.be.approximately( 500, 1000 )
           failures.should.be.equal 1
           done()
         # do not call jdone to simulate a stuck worker
